@@ -4,6 +4,9 @@
 
 ## 1. 从 GitHub 导入项目到 Colab
 最直接的方法是直接在 Colab 中打开你的 GitHub Notebook：
+
+![image.png](../assets/images/00_cloud_lab_setup_cell1_image.png)
+
 1. 打开 [Google Colab](https://colab.research.google.com/)
 2. 在弹出的窗口中选择 **GitHub** 标签页。
 3. 授权 Colab 访问你的 GitHub 账号。
