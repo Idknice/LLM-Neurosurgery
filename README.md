@@ -1,2 +1,61 @@
-# LLM-Neurosurgery
-A white-box hacking guide: From Google Colab to Qwen3.5
+# 大模型极客实战大纲：从 Colab 到 Qwen3.5 的白盒探索
+
+本大纲旨在带领你从一个只懂调用 API 的旁观者，成长为能够深入大模型底层、修改模型结构的“神经外科医生”。整个学习路径以实践为核心，所有实验均可在免费的 Google Colab 和开源模型（如 Qwen3.5-4B）上完成。
+
+## 目录结构
+- `notebooks/`: 包含所有阶段的 Jupyter Notebook 实战代码
+- `docs/`: 参考文档和流程说明（如 GitHub 与 Colab 联动指南）
+- `src/`: 核心代码实现或独立脚本（按需添加）
+
+## 项目环境 (uv)
+本项目使用 [uv](https://github.com/astral-sh/uv) 管理 Python 环境和依赖库。
+
+### 本地开发
+在克隆仓库后，执行以下命令同步环境：
+```powershell
+uv sync
+```
+激活环境：
+```powershell
+.venv\Scripts\activate
+```
+
+## 学习大纲
+### 第 0 阶段：云端实验室的基石 (掌握 Google Colab 与环境配置)
+**目标：** 熟练掌控你的免费云端服务器，不再为环境配置和算力发愁。
+- **Colab 核心机制：** 实例分配、GPU 挂载（T4/L4/A100）、显存监控。
+- **魔法命令：** `!pip`, `%cd`, `!git clone` 等系统级操作。
+- **数据管理：** 挂载 Google Drive、上传/下载大型模型文件、避免实例重置导致数据丢失。
+- **与 GitHub 的联动：** Clone 私有/公开仓库、使用 PAT、一键保存 Notebook 回 GitHub。
+
+### 第 1 阶段：兵器库储备 (PyTorch 与 Hugging Face 基础)
+**目标：** 看懂并能手写大模型运作的基础代码，理解 AI 界的“基础设施”。
+- **PyTorch 基础：** 张量 (Tensor) 概念、维度 (Shape)、数据类型、设备转移 `.to("cuda")`、基础矩阵运算。
+- **Hugging Face 生态拆解：**
+  - Tokenizer 分词原理、特殊符号编码。
+  - Transformers 库 `AutoModelForCausalLM` 和 `AutoTokenizer` 加载。
+  - 模型精度魔法 (FP32, FP16, BF16)。
+
+### 第 2 阶段：解剖外星人 (深入 Transformer 架构)
+**目标：** 把大模型拆开，理解注意力机制的本质，能在代码中找到这些“器官”。
+- **Transformer 核心组件原理：** Self-Attention, MLP/FFN, 位置编码。
+- **代码级“白盒”探秘：** 打印模型结构并提取特定层级的权重参数。
+- **【实验】暴力截肢：** 砍掉部分模型层，对比推理速度和智商变化。
+
+### 第 3 阶段：记忆植入与性格重塑 (微调与数据工程)
+**目标：** 让模型学习特定领域的知识，或者改变它的说话语调。
+- **数据构建艺术：** 指令微调 (Instruction Tuning) 数据集格式构建。
+- **参数高效微调 (PEFT - LoRA)：** 核心原理与旁路矩阵实现。
+- **【实验】微调实战：** 使用自定义数据对模型进行微调，并完成模型合并与保存。
+
+### 第 4 阶段：前沿极客实验 (机制可解释性与干预)
+**目标：** 像黑客一样在模型“思考”的过程中进行数据劫持和意图控制。
+- **PyTorch Hook 技术：** 提取特定层次的隐藏状态 (Hidden States)。
+- **表征工程 (Representation Engineering)：** 提取控制向量。
+- **【实验】自指悖论与向量注入：** 在推理时动态注入干预向量，观察底层力量与表层语义对抗。
+
+### 第 5 阶段：深潜 Qwen 家族架构 (Qwen 具体技术细节)
+**目标：** 深入探究 Qwen3.5 的独门秘籍。
+- **Qwen 核心架构改进：** SwiGLU 激活函数、RoPE 旋转位置编码、GQA 机制。
+- **词表与多语言能力：** 超大词表的应用。
+- 架构向新一代模型的演进。
